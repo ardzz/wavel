@@ -1,3 +1,4 @@
+![](https://raw.githubusercontent.com/ardzz/wavel/master/images/wavel_header.png)
 # Whatsapp Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ardzz/wavel.svg?style=flat-square)](https://packagist.org/packages/ardzz/wavel)
