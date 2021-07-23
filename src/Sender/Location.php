@@ -15,10 +15,10 @@ class Location
     use RequestTrait;
 
     /**
-     * @param String|Int $latitude
-     * @param String|Int $longitude
-     * @param String $locationName
-     * @param String|Int $receiverNumber
+     * @param String|Int $latitude  Latitude coordinate
+     * @param String|Int $longitude Longitude coordinate
+     * @param String $locationName Location name
+     * @param String|Int $receiverNumber Receiver number
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty

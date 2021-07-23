@@ -6,14 +6,17 @@ namespace Ardzz\Wavel\Cores\Handler;
 use Ardzz\Wavel\Cores\Exception\WavelError;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class Output
+ * @package Ardzz\Wavel\Cores\Handler
+ */
 class Output
 {
-    private mixed $response;
-
     /**
+     * @param string $response Response request from Openwa server
      * @throws WavelError
      */
-    public function __construct($response)
+    public function __construct(private string $response)
     {
         $this->response = json_decode($response, true);
         if (!is_null($this->getErrorMessage())){
@@ -26,20 +29,35 @@ class Output
         }
     }
 
+    /**
+     * Check connection to openwa server is error or not
+     * @return bool
+     */
     private function isConnectionError(): bool
     {
         return is_null($this->getResponse());
     }
 
+    /**
+     * Get response
+     * @return mixed
+     */
     private function getResponse()
     {
         return $this->response;
     }
 
+    /**
+     * Get response body
+     * @return mixed|null
+     */
     function getResponseBody(){
         return $this->hasResponse() ? $this->getResponse()["response"] : null;
     }
 
+    /**
+     * @return bool
+     */
     function isSuccess(): bool
     {
         return (
@@ -53,6 +71,10 @@ class Output
         );
     }
 
+    /**
+     * @param String $key
+     * @return bool
+     */
     private function keyExist(String $key): bool
     {
         if (!$this->isConnectionError()){
@@ -62,11 +84,17 @@ class Output
         }
     }
 
+    /**
+     * @return bool
+     */
     function hasError(): bool
     {
         return $this->keyExist("error");
     }
 
+    /**
+     * @return mixed|string|null
+     */
     function getErrorMessage(){
 
         if ($this->isJsonValid()){
@@ -82,11 +110,17 @@ class Output
         }
     }
 
+    /**
+     * @return bool
+     */
     private function isJsonValid(): bool
     {
         return !json_last_error() && $this->hasResponse();
     }
 
+    /**
+     * @return bool
+     */
     private function hasResponse(): bool
     {
         return $this->keyExist("response");

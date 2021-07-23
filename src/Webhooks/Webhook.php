@@ -6,23 +6,40 @@ namespace Ardzz\Wavel\Webhooks;
 
 use Ardzz\Wavel\Cores\Exception\WavelError;
 use Ardzz\Wavel\Cores\Exception\WavelHostIsEmpty;
+use Ardzz\Wavel\Cores\Handler\Output;
 use Ardzz\Wavel\Sender\Text;
+use Ardzz\Wavel\Wavel;
 use Ardzz\Wavel\Webhooks\Collections\Chat;
 use Ardzz\Wavel\Webhooks\Collections\Group;
 use Ardzz\Wavel\Webhooks\Collections\Sender;
 
+/**
+ * Class Webhook
+ * @package Ardzz\Wavel\Webhooks
+ */
 class Webhook
 {
+    /**
+     * Webhook constructor.
+     * @param array $data
+     */
     function __construct(protected array $data){
         //$this->data = json_decode($data, 1);
     }
 
-    protected function getData()
+    /**
+     * @return mixed
+     */
+    protected function getData(): mixed
     {
         return $this->data['data'];
     }
 
-    function getMessageId(){
+    /**
+     * @return mixed
+     */
+    function getMessageId(): mixed
+    {
         return $this->getData()['id'];
     }
 
@@ -34,21 +51,36 @@ class Webhook
         return $this->getTypeMessage() == 'chat' ? (string) $this->getData()['body'] : null;
     }
 
-    function getTypeMessage()
+    /**
+     * @return null|string
+     */
+    function getTypeMessage(): null|string
     {
         return array_key_exists('type', $this->getData()) ? $this->getData()['type'] : 'n/a';
     }
 
-    function getChatId(){
+    /**
+     * @return mixed
+     */
+    function getChatId(): mixed
+    {
         return $this->getData()['chatId'];
     }
 
-    function isMedia(){
+    /**
+     * @return mixed
+     */
+    function isMedia(): mixed
+    {
         return $this->getData()['isMedia'];
     }
 
-    function isGroupMessage(){
-        return $this->getData()['isGroupMsg'];
+    /**
+     * @return bool
+     */
+    function isGroupMessage(): bool
+    {
+        return (boolean) $this->getData()['isGroupMsg'];
     }
 
     /**
@@ -67,7 +99,11 @@ class Webhook
         return (bool) $this->getData()['fromMe'];
     }
 
-    function getEvents(){
+    /**
+     * @return mixed
+     */
+    function getEvents(): mixed
+    {
         return $this->data['event'];
     }
 
@@ -87,6 +123,9 @@ class Webhook
         return new Chat($this->getData()['chat']);
     }
 
+    /**
+     * @return Group|null
+     */
     function group(): ?Group
     {
         if ($this->isGroupMessage()){
@@ -96,31 +135,27 @@ class Webhook
     }
 
     /**
-     * @throws WavelHostIsEmpty
+     * @param String $message
+     * @return Output|null
      * @throws WavelError
+     * @throws WavelHostIsEmpty
      */
-    function reply(String $message)
+    function reply(String $message): ?Output
     {
-        $onMessage = $this->getEvents() == 'onMessage' && !$this->AmISender() && !$this->isGroupMessage();
-        $onAnyMessage = $this->getEvents() == 'onAnyMessage' && !$this->AmISender() && $this->isGroupMessage();
-        $text = new Text();
-
-        if ($this->isGroupMessage()){
-            $reply = $text->reply(
+        if (Wavel::eventValid($this)){
+             return (new Text())->reply(
                 $message,
                 $this->getChatId(),
                 $this->getMessageId(),
-                true
-            );
-        }else{
-            $reply = $text->reply(
-                $message,
-                $this->senderNumber(),
-                $this->getMessageId()
+                $this->isGroupMessage()
             );
         }
+        return null;
     }
 
+    /**
+     * @return string
+     */
     function getType(): string
     {
         return $this->AmISender() ? 'outcome' : 'income';

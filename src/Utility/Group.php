@@ -7,6 +7,7 @@ use Ardzz\Wavel\Cores\Exception\WavelHostIsEmpty;
 use Ardzz\Wavel\Cores\Format;
 use Ardzz\Wavel\Cores\Handler\Output;
 use Ardzz\Wavel\Cores\Http\RequestTrait;
+use Ardzz\Wavel\Sender\Text;
 use Ardzz\Wavel\Wavel;
 use Ardzz\Wavel\Webhooks\Webhook;
 
@@ -307,7 +308,7 @@ class Group
             $participants = array_chunk($participants, 6);
             foreach ($participants as $participant) {
                 $participant = implode(' ', $participant);
-                $output[] = Wavel::text()->messageWithMention($participant, $webhook->getChatId(), true);
+                $output[] = (new Text())->messageWithMention($participant, $webhook->getChatId(), true);
             }
         }
         return $output;
@@ -330,7 +331,7 @@ class Group
             $participants = array_chunk($participants, 6);
             foreach ($participants as $participant) {
                 $participant = implode(' ', $participant);
-                $output[] = Wavel::text()->messageWithMention($participant, $groupId, true);
+                $output[] = (new Text())->messageWithMention($participant, $groupId, true);
             }
             return $output;
         }

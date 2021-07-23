@@ -1,10 +1,9 @@
-# Very short description of the package
+# Whatsapp Laravel
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ardzz/wavel.svg?style=flat-square)](https://packagist.org/packages/ardzz/wavel)
 [![Total Downloads](https://img.shields.io/packagist/dt/ardzz/wavel.svg?style=flat-square)](https://packagist.org/packages/ardzz/wavel)
-![GitHub Actions](https://github.com/ardzz/wavel/actions/workflows/main.yml/badge.svg)
 
-This is where your description should go. Try and limit it to a paragraph or two, and maybe throw in a mention of what PSRs you support to avoid any confusion with users and contributors.
+An elegant package to integrate Laravel with [Whatsapp automate](https://github.com/open-wa/wa-automate-nodejs)   
 
 ## Installation
 
@@ -15,20 +14,13 @@ composer require ardzz/wavel
 ```
 
 ## Usage
-
-```php
-// Usage description here
-```
+[Read documentation](https://wavel.ardzz.codes/)
 
 ### Testing
 
 ```bash
 composer test
 ```
-
-### Changelog
-
-Please see [CHANGELOG](CHANGELOG.md) for more information what has changed recently.
 
 ## Contributing
 
@@ -46,7 +38,3 @@ If you discover any security related issues, please email ardzz@indoxploit.or.id
 ## License
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-## Laravel Package Boilerplate
-
-This package was generated using the [Laravel Package Boilerplate](https://laravelpackageboilerplate.com).

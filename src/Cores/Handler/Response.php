@@ -8,9 +8,21 @@ use GuzzleHttp\Exception\BadResponseException;
 use GuzzleHttp\Exception\GuzzleException;
 use Psr\Http\Message\ResponseInterface;
 
+/**
+ * Class Response
+ * @package Ardzz\Wavel\Cores\Handler
+ */
 class Response
 {
+    /**
+     * @var ResponseInterface
+     */
     static ResponseInterface $ResponseInterface;
+
+    /**
+     * @param callable $callback
+     * @return string
+     */
     static function create(callable $callback): string
     {
         try {
@@ -25,6 +37,9 @@ class Response
         }
     }
 
+    /**
+     * @return ResponseInterface
+     */
     static function getResponseInterface(): ResponseInterface
     {
         return self::$ResponseInterface;

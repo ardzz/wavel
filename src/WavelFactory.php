@@ -27,6 +27,9 @@ class WavelFactory
         Request::init($wavelHost, $wavelApiKey, $wavelProxy);
     }
 
+    /**
+     * @return OTP
+     */
     function OTP(): OTP
     {
         return new OTP();
@@ -40,6 +43,9 @@ class WavelFactory
         return new Text();
     }
 
+    /**
+     * @return User
+     */
     function user(): User
     {
         return new User();
@@ -53,11 +59,17 @@ class WavelFactory
         return new Media();
     }
 
+    /**
+     * @return Group
+     */
     function group(): Group
     {
         return new Group();
     }
 
+    /**
+     * @return Server
+     */
     function server(): Server
     {
         return new Server();
@@ -79,6 +91,9 @@ class WavelFactory
         return new Location();
     }
 
+    /**
+     * @return Participant
+     */
     function participant(): Participant
     {
         return new Participant();

@@ -8,8 +8,21 @@ use Ardzz\Wavel\Cores\Exception\WavelHostIsEmpty;
 use GuzzleHttp\Client;
 use Ardzz\Wavel\Cores\Handler\Response;
 
+/**
+ * Class Request
+ * @package Ardzz\Wavel\Cores\Http
+ */
 class Request
 {
+    /**
+     * @var string|null Host openwa (ip/domain that accessible)
+     */
+    /**
+     * @var string|null
+     */
+    /**
+     * @var string|null
+     */
     protected static ?string $host, $proxy, $apiKey = null;
 
     /**
@@ -116,6 +129,11 @@ class Request
         self::$apiKey = $apiKey;
     }
 
+    /**
+     * @param string $wavelHost Host openwa (ip/domain that accessible)
+     * @param string|null $wavelApiKey Openwa api key (if needed)
+     * @param string|null $wavelProxy Proxy as MITM between Laravel and Openwa server
+     */
     static function init(string $wavelHost, string $wavelApiKey = null, string $wavelProxy = null){
         self::setHost($wavelHost);
         self::setApiKey($wavelApiKey);
