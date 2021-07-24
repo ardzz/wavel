@@ -22,7 +22,7 @@ An elegant package to integrate Laravel with [Whatsapp automate](https://github.
 |isOnline|
 |Send Location|
 |Create Groups|
-|add, remove, promote, demote participants|
+|Add, remove, promote, demote participants|
 
 
 ## Installation
