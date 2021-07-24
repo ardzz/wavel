@@ -95,4 +95,27 @@ class Contact
     {
         return $this->process('getBlockedIds');
     }
+
+    /**
+     * @return Output
+     * @throws WavelError
+     * @throws WavelHostIsEmpty
+     */
+    function getAllContacts(): Output
+    {
+        return $this->process('getAllContacts');
+    }
+
+    /**
+     * @param string|int $contactId
+     * @return Output
+     * @throws WavelError
+     * @throws WavelHostIsEmpty
+     */
+    function getContact(string|int $contactId): Output
+    {
+        return $this->process('getContact', [
+            'contactId' => Format::number($contactId)
+        ]);
+    }
 }
