@@ -1,7 +1,7 @@
 # Whatsapp Laravel
-![](https://raw.githubusercontent.com/ardzz/wavel/master/images/wavel_header.png)
+![](https://raw.githubusercontent.com/ardzz/wavel/master/images/wavel_header.png)<br>
 [![Latest Version on Packagist](https://poser.pugx.org/ardzz/wavel/v/stable.svg)](https://packagist.org/packages/ardzz/wavel)
-[![Total Downloads](https://img.shields.io/packagist/dt/ardzz/wavel.svg?style=flat-square)](https://packagist.org/packages/ardzz/wavel)
+[![Total Downloads](https://poser.pugx.org/ardzz/wavel/downloads.svg)](https://packagist.org/packages/ardzz/wavel)
 
 An elegant package to integrate Laravel with [Whatsapp automate](https://github.com/open-wa/wa-automate-nodejs)   
 
