@@ -1,6 +1,7 @@
 # Whatsapp Laravel
 ![](https://raw.githubusercontent.com/ardzz/wavel/master/images/wavel_header.png)<br>
-[![Latest Stable Version](http://poser.pugx.org/ardzz/wavel/v)](https://packagist.org/packages/ardzz/wavel) 
+[![Latest Stable Version](http://poser.pugx.org/ardzz/wavel/v)](https://packagist.org/packages/ardzz/wavel) [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fardzz%2Fwavel.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fardzz%2Fwavel?ref=badge_shield)
+
 [![Total Downloads](http://poser.pugx.org/ardzz/wavel/downloads)](https://packagist.org/packages/ardzz/wavel) 
 [![Latest Unstable Version](http://poser.pugx.org/ardzz/wavel/v/unstable)](https://packagist.org/packages/ardzz/wavel) 
 [![License](http://poser.pugx.org/ardzz/wavel/license)](https://packagist.org/packages/ardzz/wavel)
@@ -59,3 +60,6 @@ If you discover any security related issues, please email ardzz@indoxploit.or.id
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fardzz%2Fwavel.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fardzz%2Fwavel?ref=badge_large)
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
+
+
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fardzz%2Fwavel.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fardzz%2Fwavel?ref=badge_large)
