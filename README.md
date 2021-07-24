@@ -5,7 +5,7 @@
 [![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ardzz/wavel.svg)](http://isitmaintained.com/project/ardzz/wavel "Average time to resolve an issue")
 [![Percentage of issues still open](http://isitmaintained.com/badge/open/ardzz/wavel.svg)](http://isitmaintained.com/project/ardzz/wavel "Percentage of issues still open")
 
-An elegant package to integrate Laravel with [Whatsapp automate](https://github.com/open-wa/wa-automate-nodejs)   
+An elegant package to integrate Laravel with [Whatsapp automate](https://github.com/open-wa/wa-automate-nodejs)
 
 ## Installation
 
@@ -30,7 +30,20 @@ WAVEL_PROXY=
 ```
 
 ## Usage
-[Read documentation](https://wavel.ardzz.codes/)
+Outside laravel (standalone)
+```php
+$wavel = new \Ardzz\Wavel\WavelFactory('127.0.0.1:9090', 'VerY_S3creT');
+
+$sendMessage = $wavel->text()->message('This message sent by using wavel', '6288888888');
+var_dump($sendMessage->isSuccess());
+```
+Inside laravel (facade)
+```php
+$wavel = \Ardzz\Wavel\Wavel::text()->message('This message sent by using wavel', '6288888888');
+dd($wavel);
+```
+
+### [More usage](https://wavel.ardzz.codes/)
 
 ### Testing
 
