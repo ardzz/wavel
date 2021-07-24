@@ -60,6 +60,3 @@ If you discover any security related issues, please email ardzz@indoxploit.or.id
 [![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fardzz%2Fwavel.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fardzz%2Fwavel?ref=badge_large)
 
 The MIT License (MIT). Please see [License File](LICENSE.md) for more information.
-
-
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fardzz%2Fwavel.svg?type=large)](https://app.fossa.com/projects/git%2Bgithub.com%2Fardzz%2Fwavel?ref=badge_large)
