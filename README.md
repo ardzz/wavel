@@ -1,9 +1,16 @@
-# Whatsapp Laravel
 ![](https://raw.githubusercontent.com/ardzz/wavel/master/images/wavel_header.png)
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/ardzz/wavel.svg?style=flat-square)](https://packagist.org/packages/ardzz/wavel)
 [![Total Downloads](https://img.shields.io/packagist/dt/ardzz/wavel.svg?style=flat-square)](https://packagist.org/packages/ardzz/wavel)
+[![Average time to resolve an issue](http://isitmaintained.com/badge/resolution/ardzz/wavel.svg)](http://isitmaintained.com/project/ardzz/wavel "Average time to resolve an issue")
+[![Percentage of issues still open](http://isitmaintained.com/badge/open/ardzz/wavel.svg)](http://isitmaintained.com/project/ardzz/wavel "Percentage of issues still open")
 
-An elegant package to integrate Laravel with [Whatsapp automate](https://github.com/open-wa/wa-automate-nodejs)   
+An elegant package to integrate Laravel with [Whatsapp automate](https://github.com/open-wa/wa-automate-nodejs)
+
+## Features
+|Function|Available
+|---|---|
+|Receive message|Yes|
+|Send text|Yes|
 
 ## Installation
 
@@ -13,8 +20,35 @@ You can install the package via composer:
 composer require ardzz/wavel
 ```
 
+## Push Vendor
+```bash
+php artisan vendor:publish --provider="Ardzz\\Wavel\\WavelServiceProvider"
+```
+## Configuration
+```dotenv
+# Host of openwa easy api
+WAVEL_HOST=
+# Api key if needed
+WAVEL_API_KEY=
+# Proxy client
+WAVEL_PROXY=
+```
+
 ## Usage
-[Read documentation](https://wavel.ardzz.codes/)
+Outside laravel (standalone)
+```php
+$wavel = new \Ardzz\Wavel\WavelFactory('127.0.0.1:9090', 'VerY_S3creT');
+
+$sendMessage = $wavel->text()->message('This message sent by using wavel', '6288888888');
+var_dump($sendMessage->isSuccess());
+```
+Inside laravel (facade)
+```php
+$wavel = \Ardzz\Wavel\Wavel::text()->message('This message sent by using wavel', '6288888888');
+dd($wavel);
+```
+
+### [More usage](https://wavel.ardzz.codes/)
 
 ### Testing
 
