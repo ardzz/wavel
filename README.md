@@ -10,17 +10,14 @@ An elegant package to integrate Laravel with [Whatsapp automate](https://github.
 |---|---|
 |Receive message (webhook)|
 |Send text|
+|Send contact|
+|Send media (doc, image)|
+|Send stickers (from url, image, webp)|
+|Send Location|
+|Decrypt media (image, audio, doc)|
 |Get contacts|
 |Get groups|
 |Get groups members|
-|Send contact|
-|Send images|
-|Send media (audio, doc)|
-|Send stickers (from url, image, webp)|
-|Decrypt media (image, audio, doc)|
-|Last seen|
-|isOnline|
-|Send Location|
 |Create Groups|
 |Add, remove, promote, demote participants|
 
