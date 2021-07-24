@@ -5,6 +5,26 @@
 
 An elegant package to integrate Laravel with [Whatsapp automate](https://github.com/open-wa/wa-automate-nodejs)   
 
+## Features
+|Function|Reference|
+|---|---|
+|Receive message (webhook)|
+|Send text|
+|Get contacts|
+|Get groups|
+|Get groups members|
+|Send contact|
+|Send images|
+|Send media (audio, doc)|
+|Send stickers (from url, image, webp)|
+|Decrypt media (image, audio, doc)|
+|Last seen|
+|isOnline|
+|Send Location|
+|Create Groups|
+|add, remove, promote, demote participants|
+
+
 ## Installation
 
 You can install the package via composer:
