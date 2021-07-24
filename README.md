@@ -8,7 +8,6 @@ An elegant package to integrate Laravel with [Whatsapp automate](https://github.
 ## Features
 |Function|Reference|
 |---|---|
-|Receive message (webhook)|
 |Send text|
 |Send contact|
 |Send media (doc, image)|
@@ -20,6 +19,7 @@ An elegant package to integrate Laravel with [Whatsapp automate](https://github.
 |Get groups members|
 |Create Groups|
 |Add, remove, promote, demote participants|
+|Receive message (webhook)|
 
 
 ## Installation
