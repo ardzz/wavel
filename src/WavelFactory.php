@@ -8,6 +8,7 @@ use Ardzz\Wavel\Sender\Location;
 use Ardzz\Wavel\Sender\Media;
 use Ardzz\Wavel\Sender\OTP;
 use Ardzz\Wavel\Sender\Text;
+use Ardzz\Wavel\Utility\Chat;
 use Ardzz\Wavel\Utility\Group;
 use Ardzz\Wavel\Utility\Participant;
 use Ardzz\Wavel\Utility\Server;
@@ -49,6 +50,14 @@ class WavelFactory
     function user(): User
     {
         return new User();
+    }
+
+    /**
+     * @return Chat
+     */
+    function chat(): Chat
+    {
+        return new Chat();
     }
 
     /**
