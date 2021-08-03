@@ -47,14 +47,15 @@ class Contact
     /**
      * @param String|Int $contactNumber
      * @param String|Int $receiverNumber
+     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function sendContact(String|Int $contactNumber, String|Int $receiverNumber): Output
+    function sendContact(String|Int $contactNumber, String|Int $receiverNumber, bool $isGroup = false): Output
     {
         return $this->process("sendContact", [
-            "to" => Format::number($receiverNumber),
+            "to" => Format::number($receiverNumber, $isGroup),
             "contactId" => Format::number($contactNumber)
         ]);
     }
