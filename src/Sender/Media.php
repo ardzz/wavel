@@ -63,7 +63,7 @@ class Media
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function imageAsSticker(String $file, String|Int $receiverNumber, bool $isGroup = false): Output
+    function imageAsSticker(String|Int $receiverNumber, String $file, bool $isGroup = false): Output
     {
         return $this->process("sendImageAsSticker", [
             "to" => Format::number($receiverNumber, $isGroup),
@@ -79,7 +79,7 @@ class Media
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function rawWebpAsSticker(String $file, String|Int $receiverNumber, bool $isGroup = false): Output
+    function rawWebpAsSticker(String|Int $receiverNumber, String $file, bool $isGroup = false): Output
     {
         return $this->process("sendRawWebpAsSticker", [
             "to" => Format::number($receiverNumber, $isGroup),
@@ -96,7 +96,7 @@ class Media
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function fileFromURL(String $url, String|Int $receiverNumber, String $message, bool $isGroup = false): Output
+    function fileFromURL(String|Int $receiverNumber, String $url, String $message, bool $isGroup = false): Output
     {
 
         $file = explode('/', $url);
