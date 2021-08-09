@@ -2,18 +2,18 @@
 
 use Ardzz\Wavel\Cores\Handler\File;
 
-$file = new File(  __DIR__ . '/../sample_file');
+$file = new File(  __DIR__ . '/sample_file');
 
 
 
 
 
 it('can get file', function () use ($file){
-    expect($file->getFile())->toBe(__DIR__ . '/../sample_file');
+    expect($file->getFile())->toBe(__DIR__ . '/sample_file');
 });
 
 it('can read file', function () use ($file){
-    expect($file->read())->toBe("testCase\n");
+    expect($file->read())->toBe("testCase");
 });
 
 it('can check that file is exists or not', function () use ($file){
