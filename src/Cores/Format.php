@@ -14,12 +14,21 @@ class Format
 {
     /**
      * @param string|int $number
-     * @param bool $isGroup
      * @return string
      */
-    static function number(string|int $number, bool $isGroup = false): string
+    static function number(string|int $number): string
     {
-        return $isGroup ? $number : $number . '@c.us';
+        if(str_contains($number, '-')){
+            if (str_ends_with($number, '@g.us')){
+                return $number;
+            }
+            return $number . '@g.us';
+        }else{
+            if (str_ends_with($number, '@c.us')){
+                return $number;
+            }
+            return $number . '@c.us';
+        }
     }
 
     /**
