@@ -21,15 +21,14 @@ class Media
      * @param String $message
      * @param String|Int $receiverNumber
      * @param String $file
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function document(String $message, String|Int $receiverNumber, String $file, bool $isGroup = false): Output
+    function document(String $message, String|Int $receiverNumber, String $file): Output
     {
         return $this->process("sendFile", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "file" => Format::document($file),
             "filename" => $file,
             "caption" => $message
@@ -40,15 +39,14 @@ class Media
      * @param String $message
      * @param String|Int $receiverNumber
      * @param String $file
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function image(String $message, String|Int $receiverNumber, String $file, bool $isGroup = false): Output
+    function image(String $message, String|Int $receiverNumber, String $file): Output
     {
         return $this->process("sendImage", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "file" => Format::image($file),
             "filename" => $file,
             "caption" => $message
@@ -58,15 +56,14 @@ class Media
     /**
      * @param String|Int $receiverNumber
      * @param String $file
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function imageAsSticker(String|Int $receiverNumber, String $file, bool $isGroup = false): Output
+    function imageAsSticker(String|Int $receiverNumber, String $file): Output
     {
         return $this->process("sendImageAsSticker", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "image" => Format::image($file)
         ]);
     }
@@ -74,15 +71,14 @@ class Media
     /**
      * @param String|Int $receiverNumber
      * @param String $file
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function rawWebpAsSticker(String|Int $receiverNumber, String $file, bool $isGroup = false): Output
+    function rawWebpAsSticker(String|Int $receiverNumber, String $file): Output
     {
         return $this->process("sendRawWebpAsSticker", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "webpBase64" => Format::document($file)
         ]);
     }
@@ -91,18 +87,17 @@ class Media
      * @param String|Int $receiverNumber
      * @param String $url
      * @param String $message
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function fileFromURL(String|Int $receiverNumber, String $url, String $message, bool $isGroup = false): Output
+    function fileFromURL(String|Int $receiverNumber, String $url, String $message): Output
     {
 
         $file = explode('/', $url);
 
         return $this->process('sendFileFromUrl', [
-            'to' => Format::number($receiverNumber, $isGroup),
+            'to' => Format::number($receiverNumber),
             "url" => $url,
             "filename" => end($file),
             "caption" => $message

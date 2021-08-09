@@ -109,9 +109,9 @@ class OTP
         if ($otp->status){
             if (is_callable($message)){
                 $message = $this->parseMessage($message, $otp->token);
-                return Wavel::text()->message($message, $receiver_otp);
+                return (new Text())->message($message, $receiver_otp);
             }
-            return Wavel::text()->message($this->loadDefaultMessage($otp->token), $receiver_otp);
+            return (new Text())->message($this->loadDefaultMessage($otp->token), $receiver_otp);
         }
         return null;
     }

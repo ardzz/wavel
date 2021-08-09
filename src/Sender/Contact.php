@@ -24,20 +24,19 @@ class Contact
      * @param String $fullName
      * @param String|Int $phoneNumber
      * @param String|Int $receiverNumber
-     * @param bool $isGroup
      * @return Output
      * @throws VCardException
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function sendVCard(String $fullName, String|Int $phoneNumber, String|Int $receiverNumber, bool $isGroup = false): Output
+    function sendVCard(String $fullName, String|Int $phoneNumber, String|Int $receiverNumber): Output
     {
         $vcard = new VCard();
         $vcard->addName($fullName);
         $vcard->addPhoneNumber($phoneNumber);
 
         return $this->process("sendVCard", [
-            "chatId"=> Format::number($receiverNumber, $isGroup),
+            "chatId"=> Format::number($receiverNumber),
             "vcard" => $vcard->getOutput(),
             "contactName" => $fullName,
             "contactNumber" => $phoneNumber
@@ -47,15 +46,14 @@ class Contact
     /**
      * @param String|Int $contactNumber
      * @param String|Int $receiverNumber
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function sendContact(String|Int $contactNumber, String|Int $receiverNumber, bool $isGroup = false): Output
+    function sendContact(String|Int $contactNumber, String|Int $receiverNumber): Output
     {
         return $this->process("sendContact", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "contactId" => Format::number($contactNumber)
         ]);
     }

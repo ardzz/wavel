@@ -21,15 +21,14 @@ class Text
     /**
      * @param String $message
      * @param String|Int $receiverNumber
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function message(String $message, String|Int $receiverNumber, bool $isGroup = false): Output
+    function message(String $message, String|Int $receiverNumber): Output
     {
         return $this->process("sendText", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "content" => $message
         ]);
     }
@@ -37,15 +36,14 @@ class Text
     /**
      * @param String $message
      * @param String|Int $receiverNumber
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function messageWithMention(String $message, String|Int $receiverNumber, bool $isGroup = false): Output
+    function messageWithMention(String $message, String|Int $receiverNumber): Output
     {
         return $this->process("sendTextWithMentions", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "content" => $message
         ]);
     }
@@ -54,15 +52,14 @@ class Text
      * @param String $message
      * @param String|Int $receiverNumber
      * @param String $youtubeLink
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function youtubeLink(String $message, String|Int $receiverNumber, String $youtubeLink, bool $isGroup = false): Output
+    function youtubeLink(String $message, String|Int $receiverNumber, String $youtubeLink): Output
     {
         return $this->process("sendYoutubeLink", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "url" => $youtubeLink,
             "text" => $message
         ]);
@@ -72,16 +69,15 @@ class Text
      * @param String $message
      * @param String|Int $receiverNumber
      * @param String $messageId
-     * @param bool $isGroup
      * @param bool $sendSeen
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function reply(String $message, String|Int $receiverNumber, String $messageId, bool $isGroup = false, bool $sendSeen = false): Output
+    function reply(String $message, String|Int $receiverNumber, String $messageId, bool $sendSeen = false): Output
     {
         return $this->process('reply', [
-            'to' => Format::number($receiverNumber, $isGroup),
+            'to' => Format::number($receiverNumber),
             'content' => $message,
             'quotedMsgId' => $messageId,
             'sendSeen' => var_export($sendSeen, true)
@@ -92,15 +88,14 @@ class Text
      * @param String $message
      * @param String|Int $receiverNumber
      * @param String $link
-     * @param bool $isGroup
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function link(String $message, String|Int $receiverNumber, String $link, bool $isGroup = false): Output
+    function link(String $message, String|Int $receiverNumber, String $link): Output
     {
         return $this->process("sendLinkWithAutoPreview", [
-            "to" => Format::number($receiverNumber, $isGroup),
+            "to" => Format::number($receiverNumber),
             "url" => $link,
             "text" => $message
         ]);
