@@ -2,3 +2,4 @@
 composer.lock
 wavel.php
 vendor
+/.phpunit.result.cache
