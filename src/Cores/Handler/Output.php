@@ -12,11 +12,13 @@ use Psr\Http\Message\ResponseInterface;
  */
 class Output
 {
+    private array $response;
+
     /**
      * @param string $response Response request from Openwa server
      * @throws WavelError
      */
-    public function __construct(private string $response)
+    public function __construct(string $response)
     {
         $this->response = json_decode($response, true);
         if (!is_null($this->getErrorMessage())){
