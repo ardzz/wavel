@@ -10,11 +10,14 @@ namespace Ardzz\Wavel\Webhooks\Collections;
  */
 abstract class AbstractCollections
 {
+    protected array $data;
+
     /**
      * AbstractCollections constructor.
      * @param array $data
      */
-    function __construct(protected array $data){
+    function __construct(array $data){
+        $this->data = $data;
 
     }
 
@@ -22,7 +25,7 @@ abstract class AbstractCollections
      * @param string|null $index
      * @return string|array|null
      */
-    protected function getData(string $index = null): string|array|null
+    protected function getData(string $index = null)
     {
         if (is_string($index)){
             return $this->isIndexExists($index) ? $this->data[$index] : null;

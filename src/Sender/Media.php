@@ -19,13 +19,13 @@ class Media
 
     /**
      * @param String $message
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $file
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function document(String $message, String|Int $receiverNumber, String $file): Output
+    function document(String $message, String $receiverNumber, String $file): Output
     {
         return $this->process("sendFile", [
             "to" => Format::number($receiverNumber),
@@ -37,13 +37,13 @@ class Media
 
     /**
      * @param String $message
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $file
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function image(String $message, String|Int $receiverNumber, String $file): Output
+    function image(String $message, String $receiverNumber, String $file): Output
     {
         return $this->process("sendImage", [
             "to" => Format::number($receiverNumber),
@@ -54,13 +54,13 @@ class Media
     }
 
     /**
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $file
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function imageAsSticker(String|Int $receiverNumber, String $file): Output
+    function imageAsSticker(String $receiverNumber, String $file): Output
     {
         return $this->process("sendImageAsSticker", [
             "to" => Format::number($receiverNumber),
@@ -69,13 +69,13 @@ class Media
     }
 
     /**
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $file
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function rawWebpAsSticker(String|Int $receiverNumber, String $file): Output
+    function rawWebpAsSticker(String $receiverNumber, String $file): Output
     {
         return $this->process("sendRawWebpAsSticker", [
             "to" => Format::number($receiverNumber),
@@ -84,18 +84,16 @@ class Media
     }
 
     /**
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $url
      * @param String $message
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function fileFromURL(String|Int $receiverNumber, String $url, String $message): Output
+    function fileFromURL(String $receiverNumber, String $url, String $message): Output
     {
-
         $file = explode('/', $url);
-
         return $this->process('sendFileFromUrl', [
             'to' => Format::number($receiverNumber),
             "url" => $url,

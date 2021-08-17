@@ -29,7 +29,7 @@ class Contact
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function sendVCard(String $fullName, String|Int $phoneNumber, String|Int $receiverNumber): Output
+    function sendVCard(String $fullName, String $phoneNumber, String $receiverNumber): Output
     {
         $vcard = new VCard();
         $vcard->addName($fullName);
@@ -50,7 +50,7 @@ class Contact
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function sendContact(String|Int $contactNumber, String|Int $receiverNumber): Output
+    function sendContact(String $contactNumber, String $receiverNumber): Output
     {
         return $this->process("sendContact", [
             "to" => Format::number($receiverNumber),
@@ -64,7 +64,7 @@ class Contact
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function contactBlock(string|int $contactNumber): Output
+    function contactBlock(string $contactNumber): Output
     {
         return $this->process('contactBlock', [
             'id' => Format::number($contactNumber)
@@ -78,7 +78,7 @@ class Contact
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function contactUnblock(string|int $contactNumber): Output
+    function contactUnblock(string $contactNumber): Output
     {
         return $this->process('contactUnblock', [
             'id' => Format::number($contactNumber)
@@ -111,7 +111,7 @@ class Contact
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function getContact(string|int $contactId): Output
+    function getContact(string $contactId): Output
     {
         return $this->process('getContact', [
             'contactId' => Format::number($contactId)

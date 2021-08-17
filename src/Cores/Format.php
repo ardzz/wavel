@@ -16,7 +16,7 @@ class Format
      * @param string|int $number
      * @return string
      */
-    static function number(string|int $number): string
+    static function number(string $number): string
     {
         if(str_contains($number, '-')){
             if (str_ends_with($number, '@g.us')){
@@ -35,7 +35,7 @@ class Format
      * @param string $filename
      * @return bool|string
      */
-    static function document(string $filename): bool|string
+    static function document(string $filename)
     {
         $file = new File($filename);
         if($file->exist()){
@@ -48,7 +48,7 @@ class Format
      * @param string $filename
      * @return bool|string
      */
-    static function image(string $filename): bool|string
+    static function image(string $filename)
     {
         $file = new File($filename);
         if($file->exist() && $file->isImage()){
@@ -61,7 +61,7 @@ class Format
      * @param string|array $participants participant/chat id [string (one participant), array (multiple participants)]
      * @return array|string
      */
-    static function participantsGroup(string|array $participants): array|string
+    static function participantsGroup($participants)
     {
         if (is_string($participants)){
             return self::number($participants);

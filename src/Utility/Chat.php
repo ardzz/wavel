@@ -36,7 +36,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function archiveChat(string|int $chatId, bool $archive = true): Output
+    function archiveChat(string $chatId, bool $archive = true): Output
     {
         return $this->process('archiveChat', [
             'chatId' => Format::number($chatId),
@@ -51,7 +51,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function unArchiveChat(string|int $chatId): Output
+    function unArchiveChat(string $chatId): Output
     {
         return $this->archiveChat($chatId, false);
     }
@@ -63,7 +63,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function isChatMuted(string|int $chatId): Output
+    function isChatMuted(string $chatId): Output
     {
         return $this->process('isChatMuted', [
             'chatId' => Format::number($chatId)
@@ -116,7 +116,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function getChatById(string|int $chatId): Output
+    function getChatById(string $chatId): Output
     {
         return $this->process('getChatById', [
             'contactId' => Format::number($chatId)
@@ -131,7 +131,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function isChatOnline(string|int $chatId): Output
+    function isChatOnline(string $chatId): Output
     {
         return $this->process('isChatOnline', [
             'chatId' => Format::number($chatId)
@@ -145,7 +145,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function deleteChat(string|int $chatId): Output
+    function deleteChat(string $chatId): Output
     {
         return $this->process('deleteChat', [
             'chatId' => Format::number($chatId)
@@ -159,7 +159,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function clearChat(string|int $chatId): Output
+    function clearChat(string $chatId): Output
     {
         return $this->process('clearChat', [
             'chatId' => Format::number($chatId)
@@ -176,7 +176,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function getAllMessagesInChat(string|int $chatId, bool $includeMe = true, bool $includeNotifications = true): Output
+    function getAllMessagesInChat(string $chatId, bool $includeMe = true, bool $includeNotifications = true): Output
     {
         return $this->process('getAllMessagesInChat', [
             'chatId' => $chatId,
@@ -218,7 +218,7 @@ class Chat
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function getLastSeen(string|int $chatId): Output
+    function getLastSeen(string $chatId): Output
     {
         return $this->process('getLastSeen', [
             'chatId' => Format::number($chatId)

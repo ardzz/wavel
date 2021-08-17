@@ -13,7 +13,7 @@ class Chat extends AbstractCollections
     /**
      * @return mixed
      */
-    function getLastMessageId(): mixed
+    function getLastMessageId()
     {
         return $this->getData()['lastReceivedKey']['_serialized'];
     }
@@ -21,7 +21,7 @@ class Chat extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function isArchived(): array|string|null
+    function isArchived()
     {
         return $this->getData('archive');
     }
@@ -29,7 +29,7 @@ class Chat extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function isReadOnly(): array|string|null
+    function isReadOnly()
     {
         return $this->getData('isReadOnly');
     }
@@ -37,7 +37,7 @@ class Chat extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function isGroup(): array|string|null
+    function isGroup()
     {
         return $this->getData('isGroup');
     }
@@ -53,7 +53,7 @@ class Chat extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getFormattedTitle(): array|string|null
+    function getFormattedTitle()
     {
         return $this->getData('formattedTitle');
     }

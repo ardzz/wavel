@@ -20,25 +20,30 @@ use Ardzz\Wavel\Webhooks\Collections\Sender;
 class Webhook
 {
     /**
+     * @var array
+     */
+    protected array $data;
+
+    /**
      * Webhook constructor.
      * @param array $data
      */
-    function __construct(protected array $data){
-        //$this->data = json_decode($data, 1);
+    function __construct(array $data){
+        $this->data = $data;
     }
 
     /**
-     * @return mixed
+     * @return array
      */
-    protected function getData(): mixed
+    protected function getData(): array
     {
         return $this->data['data'];
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    function getMessageId(): mixed
+    function getMessageId(): string
     {
         return $this->getData()['id'];
     }
@@ -54,25 +59,25 @@ class Webhook
     /**
      * @return null|string
      */
-    function getTypeMessage(): null|string
+    function getTypeMessage(): ?string
     {
         return array_key_exists('type', $this->getData()) ? $this->getData()['type'] : 'n/a';
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    function getChatId(): mixed
+    function getChatId(): string
     {
         return $this->getData()['chatId'];
     }
 
     /**
-     * @return mixed
+     * @return boolean
      */
-    function isMedia(): mixed
+    function isMedia(): bool
     {
-        return $this->getData()['isMedia'];
+        return (boolean) $this->getData()['isMedia'];
     }
 
     /**
@@ -88,7 +93,7 @@ class Webhook
      */
     function isNewMessage(): bool
     {
-        return (bool) $this->getData()['isNewMsg'];
+        return (boolean) $this->getData()['isNewMsg'];
     }
 
     /**
@@ -96,13 +101,13 @@ class Webhook
      */
     function AmISender(): bool
     {
-        return (bool) $this->getData()['fromMe'];
+        return (boolean) $this->getData()['fromMe'];
     }
 
     /**
-     * @return mixed
+     * @return string
      */
-    function getEvents(): mixed
+    function getEvents(): string
     {
         return $this->data['event'];
     }

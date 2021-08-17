@@ -20,12 +20,12 @@ class Text
 
     /**
      * @param String $message
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function message(String $message, String|Int $receiverNumber): Output
+    function message(String $message, String $receiverNumber): Output
     {
         return $this->process("sendText", [
             "to" => Format::number($receiverNumber),
@@ -35,12 +35,12 @@ class Text
 
     /**
      * @param String $message
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function messageWithMention(String $message, String|Int $receiverNumber): Output
+    function messageWithMention(String $message, String $receiverNumber): Output
     {
         return $this->process("sendTextWithMentions", [
             "to" => Format::number($receiverNumber),
@@ -50,13 +50,13 @@ class Text
 
     /**
      * @param String $message
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $youtubeLink
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function youtubeLink(String $message, String|Int $receiverNumber, String $youtubeLink): Output
+    function youtubeLink(String $message, String $receiverNumber, String $youtubeLink): Output
     {
         return $this->process("sendYoutubeLink", [
             "to" => Format::number($receiverNumber),
@@ -67,14 +67,14 @@ class Text
 
     /**
      * @param String $message
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $messageId
      * @param bool $sendSeen
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function reply(String $message, String|Int $receiverNumber, String $messageId, bool $sendSeen = false): Output
+    function reply(String $message, String $receiverNumber, String $messageId, bool $sendSeen = false): Output
     {
         return $this->process('reply', [
             'to' => Format::number($receiverNumber),
@@ -86,13 +86,13 @@ class Text
 
     /**
      * @param String $message
-     * @param String|Int $receiverNumber
+     * @param String $receiverNumber
      * @param String $link
      * @return Output
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function link(String $message, String|Int $receiverNumber, String $link): Output
+    function link(String $message, String $receiverNumber, String $link): Output
     {
         return $this->process("sendLinkWithAutoPreview", [
             "to" => Format::number($receiverNumber),

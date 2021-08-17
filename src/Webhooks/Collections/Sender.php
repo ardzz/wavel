@@ -21,7 +21,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getName(): array|string|null
+    function getName()
     {
         return $this->getData('name');
     }
@@ -29,7 +29,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getShortName(): array|string|null
+    function getShortName()
     {
         return $this->getData('shortName');
     }
@@ -37,7 +37,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getPushName(): array|string|null
+    function getPushName()
     {
         return $this->getData('pushname');
     }
@@ -45,7 +45,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getFormattedName(): array|string|null
+    function getFormattedName()
     {
         return $this->getData('formattedName');
     }
@@ -53,7 +53,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function isBusiness(): array|string|null
+    function isBusiness()
     {
         return $this->getData('isBusiness');
     }
@@ -61,7 +61,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function isEnterprise(): array|string|null
+    function isEnterprise()
     {
         return $this->getData('isEnterprise');
     }
@@ -69,7 +69,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function isMyContact(): array|string|null
+    function isMyContact()
     {
         return $this->getData('isMyContact');
     }
@@ -77,7 +77,7 @@ class Sender extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getId(): array|string|null
+    function getId()
     {
         return $this->getData('id');
     }
@@ -85,7 +85,7 @@ class Sender extends AbstractCollections
     /**
      * @return mixed
      */
-    function getProfileImageURL(): mixed
+    function getProfileImageURL()
     {
         return array_key_exists('eurl', $this->getData()['profilePicThumbObj']) ? $this->getData()['profilePicThumbObj']['eurl'] : null;
     }

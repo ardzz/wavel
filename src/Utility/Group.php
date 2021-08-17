@@ -160,7 +160,7 @@ class Group
      * @throws WavelError
      * @throws WavelHostIsEmpty
      */
-    function createGroup(string $groupName, string|array $participants): Output
+    function createGroup(string $groupName, $participants): Output
     {
         return $this->process('createGroup', [
             'groupName' => $groupName,

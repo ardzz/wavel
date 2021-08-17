@@ -66,7 +66,7 @@ class OTP
     /**
      * @return mixed
      */
-    protected function generateCode(): mixed
+    protected function generateCode()
     {
         return $this->getOtp()->generate($this->getReceiverOtp(), 6, 5);
     }
@@ -76,7 +76,7 @@ class OTP
      * @param string $code
      * @return mixed
      */
-    protected function parseMessage(callable $message, string $code): mixed
+    protected function parseMessage(callable $message, string $code)
     {
         return $message($code, $this->getReceiverOtp());
     }

@@ -16,7 +16,7 @@ class Group extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getId(): array|string|null
+    function getId()
     {
         return $this->getData('id');
     }
@@ -24,7 +24,7 @@ class Group extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getOwner(): array|string|null
+    function getOwner()
     {
         return $this->getData('owner');
     }
@@ -32,7 +32,7 @@ class Group extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getDescription(): array|string|null
+    function getDescription()
     {
         return $this->getData('desc');
     }
@@ -40,7 +40,7 @@ class Group extends AbstractCollections
     /**
      * @return array|string|null
      */
-    function getParticipants(): array|string|null
+    function getParticipants()
     {
         return $this->getData('participants');
     }
@@ -49,7 +49,7 @@ class Group extends AbstractCollections
      * @param bool $createCarbon
      * @return Carbon|string
      */
-    function getCreateAt(bool $createCarbon = false): Carbon|string
+    function getCreateAt(bool $createCarbon = false)
     {
         $carbon = Carbon::createFromTimestamp($this->getData('creation'));
         return $createCarbon ? $carbon : $carbon->toDateTimeString();
