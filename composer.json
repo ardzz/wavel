@@ -26,9 +26,7 @@
     },
     "suggest": {
         "guzzlehttp/guzzle": "Required to use the Request class",
-        "ichtrojan/laravel-otp": "Required to use the OTP class",
-        "ext-fileinfo": "Required to use File::getMimeType()",
-        "ext-json": "Required to parsing json data"
+        "ichtrojan/laravel-otp": "Required to use the OTP class"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
