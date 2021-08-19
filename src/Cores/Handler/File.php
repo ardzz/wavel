@@ -10,12 +10,15 @@ namespace Ardzz\Wavel\Cores\Handler;
  */
 class File
 {
+    private string $file;
+
     /**
      * File constructor.
      * @param String $file Full path of the file
      */
-    function __construct(private String $file)
+    function __construct(String $file)
     {
+        $this->file = $file;
     }
 
     /**
@@ -31,7 +34,7 @@ class File
      * Read the file
      * @return bool|string
      */
-    function read(): bool|string
+    function read()
     {
         return $this->exist() ? file_get_contents($this->getFile()) : false;
     }
@@ -49,7 +52,7 @@ class File
      * Get mime type of file
      * @return bool|string
      */
-    function getMimeType(): bool|string
+    function getMimeType()
     {
         return mime_content_type($this->getFile());
     }
@@ -66,7 +69,7 @@ class File
                 $allowed = [IMAGETYPE_GIF , IMAGETYPE_JPEG ,IMAGETYPE_PNG , IMAGETYPE_BMP];
                 return $image && in_array($image[2], $allowed);
             }
-            catch (\Exception){
+            catch (\Exception $ex){
                 return false;
             }
         }
