@@ -20,7 +20,15 @@
         "php": "^7.4|^8.0",
         "guzzlehttp/guzzle": "7.3.0",
         "ichtrojan/laravel-otp": "^1.4",
-        "illuminate/support": "^8.0"
+        "illuminate/support": "^8.0",
+        "ext-fileinfo": "*",
+        "ext-json": "*"
+    },
+    "suggest": {
+        "guzzlehttp/guzzle": "Required to use the Request class",
+        "ichtrojan/laravel-otp": "Required to use the OTP class",
+        "ext-fileinfo": "Required to use File::getMimeType()",
+        "ext-json": "Required to parsing json data"
     },
     "require-dev": {
         "orchestra/testbench": "^6.0",
@@ -52,6 +60,9 @@
             "aliases": {
                 "Wavel": "Wavel"
             }
+        },
+        "branch-alias": {
+            "dev-master": "1.x-dev"
         }
     }
 }
