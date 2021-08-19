@@ -1,8 +1,2 @@
 - name: Psalm – Static Analysis for PHP
-  # You may pin to the exact commit or the version.
-  # uses: psalm/psalm-github-actions@2e545d38ff4387b370449e2673088cc8dc40cf1d
-  uses: psalm/psalm-github-actions@1.1.2
-    with:
-    # Whether or not to use Psalm’s security analysis
-    - security_analysis: psalm # optional
-    # File for Psalm’s output
+- uses: psalm/psalm-github-actions@1.1.2
