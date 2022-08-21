@@ -35,7 +35,7 @@ class Webhook
     /**
      * @return array
      */
-    protected function getData(): array
+    function getData(): array
     {
         return $this->data['data'];
     }
@@ -147,7 +147,7 @@ class Webhook
      */
     function reply(String $message): ?Output
     {
-        if (Wavel::eventValid($this)){
+        if (Wavel::event()->isValid($this)){
              return (new Text())->reply(
                 $message,
                 $this->getChatId(),
