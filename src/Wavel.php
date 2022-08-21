@@ -15,7 +15,8 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Ardzz\Wavel\Sender\Contact contact()
  * @method static \Ardzz\Wavel\Sender\Location location()
  * @method static \Ardzz\Wavel\Utility\Participant participant()
- *
+ * @method static \Ardzz\Wavel\Utility\Event event()
+ * 
  * @see Wavel
  */
 class Wavel extends Facade
@@ -28,12 +29,5 @@ class Wavel extends Facade
     protected static function getFacadeAccessor(): string
     {
         return 'Wavel';
-    }
-
-    static function eventValid(Webhook $webhook): bool
-    {
-        $onMessage = $webhook->getEvents() == 'onMessage' && !$webhook->AmISender() && !$webhook->isGroupMessage();
-        $onAnyMessage = $webhook->getEvents() == 'onAnyMessage' && !$webhook->AmISender() && $webhook->isGroupMessage();
-        return $onMessage || $onAnyMessage;
     }
 }
