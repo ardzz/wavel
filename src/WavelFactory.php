@@ -9,6 +9,7 @@ use Ardzz\Wavel\Sender\Media;
 use Ardzz\Wavel\Sender\OTP;
 use Ardzz\Wavel\Sender\Text;
 use Ardzz\Wavel\Utility\Chat;
+use Ardzz\Wavel\Utility\Event;
 use Ardzz\Wavel\Utility\Group;
 use Ardzz\Wavel\Utility\Participant;
 use Ardzz\Wavel\Utility\Server;
@@ -106,5 +107,10 @@ class WavelFactory
     function participant(): Participant
     {
         return new Participant();
+    }
+
+    function event(): Event
+    {
+        return new Event();
     }
 }
