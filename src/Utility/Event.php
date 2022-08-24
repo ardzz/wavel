@@ -4,8 +4,14 @@ namespace Ardzz\Wavel\Utility;
 
 use Ardzz\Wavel\Webhooks\Webhook;
 
+/**
+ *
+ */
 class Event
 {
+    /**
+     * @var Webhook
+     */
     protected static Webhook $webhook;
 
     /**
@@ -24,20 +30,31 @@ class Event
         self::$webhook = $webhook;
     }
 
+    /**
+     * @param Webhook $webhook
+     * @return bool
+     */
     function isValid(Webhook $webhook): bool
     {
         self::setWebhook($webhook);
-        $onMessage = $webhook->getEvents() == 'onMessage' && !$webhook->AmISender() && !$webhook->isGroupMessage();
-        $onIncomingCall = false;
-        if ($webhook->getEvents() == "onIncomingCall"){
-            $onIncomingCall = true;
-            $onAnyMessage = false;
+        match ($webhook->getEvents()){
+            "onMessage" => $onMessage = $webhook->getEvents() == 'onMessage' && !$webhook->AmISender() && !$webhook->isGroupMessage(),
+            "onAnyMessage" => $onAnyMessage = $webhook->getEvents() == 'onAnyMessage' && $webhook->AmISender() || $webhook->isGroupMessage(),
+            default => null
+        };
+        if (isset($onMessage)){
+            return $onMessage;
+        }elseif (isset($onAnyMessage)){
+            return $onAnyMessage;
         }else{
-            $onAnyMessage = $webhook->getEvents() == 'onAnyMessage' && $webhook->AmISender() || $webhook->isGroupMessage();
+            return false;
         }
-        return $onMessage || $onAnyMessage || $onIncomingCall;
     }
 
+    /**
+     * @param callable $callback
+     * @return bool
+     */
     function onIncomingCall(callable $callback): bool
     {
         if (self::getWebhook()->getEvents() == "onIncomingCall"){
